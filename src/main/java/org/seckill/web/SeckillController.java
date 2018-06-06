@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.Date;
 import java.util.List;
 
@@ -35,8 +36,9 @@ public class SeckillController {
     @Autowired
     private SeckillService seckillService;
 
-    @RequestMapping(name = "/list", method = RequestMethod.GET)
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String list(Model model) {
+
         //list.jsp + model  = ModelAndView
         List<Seckill> list = seckillService.getSecillList();
         model.addAttribute("list", list);
@@ -49,7 +51,6 @@ public class SeckillController {
         if (seckillId == null) {
             return "redirect:/seckill/list";
         }
-
         Seckill seckill = seckillService.getById(seckillId);
         if (seckill == null) {
             return "forward:/seckill/list";
@@ -58,12 +59,16 @@ public class SeckillController {
         return "detail";
     }
 
-    // ajax json
-    @RequestMapping(value = "/{seckillId}/exposer", method = RequestMethod.POST, produces = "application/json;charset-UTF-8")
+    /**
+     * ajax json
+     *
+     * @param seckillId
+     * @return
+     */
+    @RequestMapping(value = "/{seckillId}/exposer", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
     @ResponseBody
     public SeckillResult<Exposer> exposer(@PathVariable("seckillId") Long seckillId) {
         SeckillResult<Exposer> result;
-
         try {
             Exposer exposer = seckillService.exportSeckillUrl(seckillId);
             result = new SeckillResult<Exposer>(true, exposer);
@@ -71,16 +76,16 @@ public class SeckillController {
             logger.info(e.getMessage(), e);
             result = new SeckillResult<Exposer>(false, e.getMessage());
         }
-
         return result;
     }
 
-    @RequestMapping(value = "/{seckillId}/{md5}/execution", method = RequestMethod.GET, produces = "application/json;charset-UTF-8")
+    @RequestMapping(value = "/{seckillId}/{md5}/execution", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
     @ResponseBody
     public SeckillResult<SeckillExecution> execute(
                                                           @PathVariable("seckillId") Long seckillId,
                                                           @PathVariable("md5") String md5,
                                                           @CookieValue(value = "killPhone", required = false) Long phone) {
+
         if (phone == null) {
             return new SeckillResult<SeckillExecution>(false, "未注册");
         }
@@ -100,11 +105,12 @@ public class SeckillController {
             SeckillExecution seckillExecution = new SeckillExecution(seckillId, SeckillStatEnum.INNER_ERROR);
             return new SeckillResult<SeckillExecution>(false, seckillExecution);
         }
-
     }
 
-    @RequestMapping(value = "/time/now", method = RequestMethod.GET)
+    @RequestMapping(value = "/time/now", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
+    @ResponseBody
     public SeckillResult<Long> time() {
+        logger.info("-------------------------------------");
         Date now = new Date();
         return new SeckillResult<Long>(true, now.getTime());
     }

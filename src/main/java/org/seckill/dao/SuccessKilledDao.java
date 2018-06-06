@@ -8,6 +8,7 @@ import org.seckill.entity.SuccessKilled;
  * Create Date: 2018/6/1
  * Class Describe
  **/
+
 public interface SuccessKilledDao {
 
     /**

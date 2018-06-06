@@ -22,7 +22,6 @@ public enum SeckillStatEnum {
         this.stateInfo = stateInfo;
     }
 
-
     public int getState() {
         return state;
     }

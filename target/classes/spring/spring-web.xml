@@ -6,10 +6,10 @@
        xsi:schemaLocation="
        http://www.springframework.org/schema/beans
    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/mvc
+   http://www.springframework.org/schema/mvc/spring-mvc.xsd
    http://www.springframework.org/schema/context
-   http://www.springframework.org/schema/context/spring-context.xsd
-   http://www.springframework.org/schema/mvc
-   http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+   http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!--配置spring的配置文件-->
     <!--1:开启SpringMvc注解模式-->
@@ -24,13 +24,12 @@
     <!--2:静态资源默认servlet配置
         1:加入对静态资源的处理 js、gif、png
         2: 允许使用 “/” 做整体映射 -->
-
     <mvc:default-servlet-handler/>
 
     <!--3:配置jsp 显示ViewResolver-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-        <property name="prefix" value="/WEB-INF/jsp"/>
+        <property name="prefix" value="/WEB-INF/jsp/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
 

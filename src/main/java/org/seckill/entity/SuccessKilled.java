@@ -22,6 +22,7 @@ public class SuccessKilled {
     //多对一
     private Seckill seckill;
 
+
     public long getSeckillId() {
         return seckillId;
     }

@@ -19,8 +19,6 @@ CREATE  TABLE  seckill(
   key idx_create_time(create_time)
 )ENGINE = InnoDB  AUTO_INCREMENT =1000 DEFAULT  CHARSET=utf8 COMMENT='秒杀库存表';
 
-
-
 -- 初始化数据
 insert into seckill (name ,number ,start_time,end_time)
 values

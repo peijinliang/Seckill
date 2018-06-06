@@ -7,6 +7,7 @@ import java.util.Date;
  * Create Date: 2018/6/1
  * Class Describe
  **/
+
 public class Seckill {
 
     private long seckillId;
@@ -82,4 +83,7 @@ public class Seckill {
                        ", createTime=" + createTime +
                        '}';
     }
+
+
+
 }
