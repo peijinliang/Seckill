@@ -10,7 +10,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
 import java.util.List;
+
 import static org.junit.Assert.*;
 
 /**
@@ -22,6 +24,7 @@ import static org.junit.Assert.*;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:spring/spring-dao.xml", "classpath:spring/spring-service.xml"})
 public class SeckillServiceTest {
+
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -60,6 +63,19 @@ public class SeckillServiceTest {
         String md5 = "6e1dbdfd3c1d662f85d005bb754d4344";
         SeckillExecution execution = seckillService.executeSeckill(id, userPhone, md5);
         logger.info("execution={}", execution);
+    }
+
+
+    @Test
+    public void executeSeckillProcedure() throws Exception {
+        long seckillId = 1003;
+        long phone = 153567582563L;
+        Exposer exposer = seckillService.exportSeckillUrl(seckillId);
+        if (exposer.isExposed()) {
+            String md5 = exposer.getMd5();
+            SeckillExecution execution = seckillService.executeSeckillProcedure(seckillId, phone, md5);
+            logger.info(execution.getStateInfo());
+        }
     }
 
 

@@ -103,13 +103,13 @@ public class SeckillController {
             SeckillExecution seckillExecution = new SeckillExecution(seckillId, SeckillStatEnum.INNER_ERROR);
             return new SeckillResult<SeckillExecution>(false, seckillExecution);
         }
+
     }
 
 
     @RequestMapping(value = "/time/now", method = RequestMethod.GET)
     @ResponseBody
     public SeckillResult<Long> time() {
-        logger.info("-----------可以正常请求打印，但是就是报错406--------------------------");
         Date now = new Date();
         return new SeckillResult<Long>(true, now.getTime());
     }

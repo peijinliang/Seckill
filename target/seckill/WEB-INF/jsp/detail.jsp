@@ -6,7 +6,6 @@
     <title>秒杀详情页</title>
     <%@include file="common/head.jsp" %>
 </head>
-
 <body>
 
 <div class="container">
@@ -37,7 +36,8 @@
             <div class="moda-body">
                 <div class="row">
                     <div class="col-xs-8 col-xs-offset-2">
-                        <input type="text" name="killPhone" id="killPhoneKey" placeholder="填写手机号^O^" class="form-control"/>
+                        <input type="text" name="killPhone" id="killPhoneKey" placeholder="填写手机号^O^"
+                               class="form-control"/>
                     </div>
                 </div>
             </div>
@@ -77,5 +77,6 @@
             endTime: ${seckill.endTime.time}
         })
     });
+
 </script>
 </html>

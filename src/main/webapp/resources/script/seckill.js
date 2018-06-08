@@ -1,6 +1,5 @@
 //存放主要交互逻辑js代码
 //javascript 模块化
-
 var seckill = {
 
     //封装秒杀相关的ajax的url
@@ -63,7 +62,6 @@ var seckill = {
                 console.log('result:' + result);
             }
         });
-
     },
 
     // 验证手机号
@@ -133,7 +131,6 @@ var seckill = {
                     }
                 });
             }
-
             //已经登陆
             //计时交互
             $.get(seckill.Url.now(), {}, function (result) {

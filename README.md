@@ -5,6 +5,7 @@ Seckill  system based on SpringMvc
 ##  java  秒杀系统
 技术栈：Spring + SpringMvc + MyBatis + BootStrap + Redis
 
+
 #### 秒杀本质是对库存进行处理
 MySQL  事务
 
@@ -37,4 +38,8 @@ URL
 2、Maven搭建Spring项目、数据库业务建表
 3、MyBatis整合Spring配置(xml)
 4、整合Redis 提高整体并发能力
+
+
+
+
 

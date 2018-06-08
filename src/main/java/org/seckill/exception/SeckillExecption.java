@@ -16,4 +16,5 @@ public class SeckillExecption extends RuntimeException {
         super(message, cause);
     }
 
+
 }

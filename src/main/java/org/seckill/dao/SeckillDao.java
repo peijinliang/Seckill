@@ -2,8 +2,10 @@ package org.seckill.dao;
 
 import org.apache.ibatis.annotations.Param;
 import org.seckill.entity.Seckill;
+
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Crete by Marlon
@@ -37,5 +39,13 @@ public interface SeckillDao {
      * @return
      */
     List<Seckill> queryAll(@Param("offset") int offset, @Param("limit") int limit);
+
+    /**
+     * 适用存储过程来执行秒杀操作
+     *
+     * @param paramMap
+     */
+    void killByProcedure(Map<String, Object> paramMap);
+
 
 }
