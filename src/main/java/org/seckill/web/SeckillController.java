@@ -14,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Date;
 import java.util.List;
 
@@ -38,7 +37,6 @@ public class SeckillController {
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String list(Model model) {
-
         //list.jsp + model  = ModelAndView
         List<Seckill> list = seckillService.getSecillList();
         model.addAttribute("list", list);
@@ -107,10 +105,11 @@ public class SeckillController {
         }
     }
 
-    @RequestMapping(value = "/time/now", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
+
+    @RequestMapping(value = "/time/now", method = RequestMethod.GET)
     @ResponseBody
     public SeckillResult<Long> time() {
-        logger.info("-------------------------------------");
+        logger.info("-----------可以正常请求打印，但是就是报错406--------------------------");
         Date now = new Date();
         return new SeckillResult<Long>(true, now.getTime());
     }

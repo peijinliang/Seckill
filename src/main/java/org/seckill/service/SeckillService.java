@@ -18,6 +18,7 @@ import java.util.List;
  * 参数越简练越好
  * 返回类型（return 友好 或者 异常和类型）
  **/
+
 public interface SeckillService {
 
     /**

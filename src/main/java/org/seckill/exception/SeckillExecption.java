@@ -5,6 +5,7 @@ package org.seckill.exception;
  * Create Date: 2018/6/4
  * Class Describe
  **/
+
 public class SeckillExecption extends RuntimeException {
 
     public SeckillExecption(String message) {
@@ -14,4 +15,5 @@ public class SeckillExecption extends RuntimeException {
     public SeckillExecption(String message, Throwable cause) {
         super(message, cause);
     }
+
 }
