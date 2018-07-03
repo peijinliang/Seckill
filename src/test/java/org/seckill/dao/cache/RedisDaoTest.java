@@ -9,7 +9,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
 import static org.junit.Assert.*;
 
 /**
@@ -17,13 +16,13 @@ import static org.junit.Assert.*;
  * Create Date: 2018/6/8
  * Class Describe
  **/
+
 @RunWith(SpringJUnit4ClassRunner.class)
 //告诉junit spring 配置文件
 @ContextConfiguration({"classpath:spring/spring-dao.xml"})
-
 public class RedisDaoTest {
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     private RedisDao redisDao;
@@ -31,9 +30,8 @@ public class RedisDaoTest {
     @Autowired
     private SeckillDao seckillDao;
 
-
     private long id = 1001;
-
+    
     @Test
     public void testSeckill() throws Exception {
         Seckill seckill = redisDao.getSeckill(id);
@@ -45,7 +43,6 @@ public class RedisDaoTest {
                 seckill = redisDao.getSeckill(id);
                 System.out.println(seckill);
             }
-
         }
     }
 

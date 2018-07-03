@@ -6,6 +6,7 @@ import org.seckill.entity.Seckill;
 import org.seckill.exception.RepeatKillException;
 import org.seckill.exception.SeckillCloseException;
 import org.seckill.exception.SeckillExecption;
+
 import java.util.List;
 
 /**
@@ -18,12 +19,10 @@ import java.util.List;
  * 参数越简练越好
  * 返回类型（return 友好 或者 异常和类型）
  **/
-
 public interface SeckillService {
 
     /**
      * 查询秒杀记录
-     *
      * @return
      */
     List<Seckill> getSecillList();
@@ -58,6 +57,7 @@ public interface SeckillService {
 
     /**
      * 存储过程
+     *
      * @param seckillId
      * @param userPhone
      * @param md5
@@ -67,8 +67,6 @@ public interface SeckillService {
      * @throws SeckillExecption
      */
     SeckillExecution executeSeckillProcedure(long seckillId, long userPhone, String md5) throws RepeatKillException, SeckillCloseException, SeckillExecption;
-
-
 
 
 }

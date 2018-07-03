@@ -19,7 +19,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.DigestUtils;
-
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -61,6 +60,7 @@ public class SeckillServerImpl implements SeckillService {
     @Override
     public Exposer exportSeckillUrl(long seckillId) {
         //优化访问缓存：超时的基础上维护一致性
+
         //1：访问redis
         Seckill seckill = redisDao.getSeckill(seckillId);
 
@@ -88,6 +88,7 @@ public class SeckillServerImpl implements SeckillService {
         String md5 = getMd5(seckillId);
         return new Exposer(true, md5, seckillId);
     }
+
 
     private String getMd5(long seckillId) {
         String base = seckillId + "/" + slat;
@@ -151,7 +152,6 @@ public class SeckillServerImpl implements SeckillService {
         }
     }
 
-
     @Override
     public SeckillExecution executeSeckillProcedure(long seckillId, long userPhone, String md5) {
         if (md5 == null || !md5.equals(getMd5(seckillId))) {
@@ -181,5 +181,6 @@ public class SeckillServerImpl implements SeckillService {
             return new SeckillExecution(seckillId, SeckillStatEnum.INNER_ERROR);
         }
     }
+
 
 }

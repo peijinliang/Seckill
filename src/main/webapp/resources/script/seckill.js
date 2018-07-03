@@ -93,7 +93,6 @@ var seckill = {
             //秒杀开始
             seckill.handleSeckillkill(seckillId, seckillbox);
         }
-
     },
 
     //详情页秒杀逻辑
@@ -142,7 +141,6 @@ var seckill = {
                     console.log('result:' + result)
                 }
             })
-
         }
     }
 

@@ -28,6 +28,11 @@ public class SeckillExecution {
      */
     private SuccessKilled successKilled;
 
+    public SeckillExecution(long seckill, SeckillStatEnum statEnum) {
+        this.seckill = seckill;
+        this.state = statEnum.getState();
+        this.stateInfo = statEnum.getStateInfo();
+    }
 
     public SeckillExecution(long seckill, SeckillStatEnum statEnum, SuccessKilled successKilled) {
         this.seckill = seckill;
@@ -35,13 +40,6 @@ public class SeckillExecution {
         this.stateInfo = statEnum.getStateInfo();
         this.successKilled = successKilled;
     }
-
-    public SeckillExecution(long seckill, SeckillStatEnum statEnum) {
-        this.seckill = seckill;
-        this.state = statEnum.getState();
-        this.stateInfo = statEnum.getStateInfo();
-    }
-
 
     public long getSeckill() {
         return seckill;

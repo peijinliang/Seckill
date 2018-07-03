@@ -2,6 +2,7 @@ package org.seckill.entity;
 
 import java.util.Date;
 
+
 /**
  * Crete by Marlon
  * Create Date: 2018/6/1
@@ -21,7 +22,6 @@ public class Seckill {
     private Date endTime;
 
     private Date createTime;
-
 
     public long getSeckillId() {
         return seckillId;

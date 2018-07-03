@@ -9,22 +9,21 @@ import org.slf4j.LoggerFactory;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
+
 /**
  * Crete by Marlon
  * Create Date: 2018/6/8
  * Class Describe
  * redis
  **/
+
 public class RedisDao {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-
     private JedisPool jedisPool;
 
-
     private RuntimeSchema<Seckill> schema = RuntimeSchema.createFrom(Seckill.class);
-
 
     /**
      * Ip 地址和端口号
@@ -64,7 +63,6 @@ public class RedisDao {
                     Seckill seckill = schema.newMessage();
                     ProtostuffIOUtil.mergeFrom(bytes, seckill, schema);
                     //seckill 被反序列化
-
                     return seckill;
                 }
 

@@ -43,6 +43,7 @@ public class SuccessKilled {
         return state;
     }
 
+
     public void setState(short state) {
         this.state = state;
     }
